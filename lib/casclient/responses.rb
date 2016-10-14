@@ -53,7 +53,7 @@ module CASClient
 
       if is_success?
         cas_user = @xml.elements["cas:user"]
-        @user = cas_user.text.strip if cas_user
+        @user = cas_user.text.strip if cas_user && cas_user.text
         @pgt_iou =  @xml.elements["cas:proxyGrantingTicket"].text.strip if @xml.elements["cas:proxyGrantingTicket"]
 
         proxy_els = @xml.elements.to_a('//cas:authenticationSuccess/cas:proxies/cas:proxy')
